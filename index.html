@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Butthole Itch</title>
+    <style>
+        body {
+            background: black;
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.5;
+            text-align: center;
+        }
+        .hero-section {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .glitch {
+            position: relative;
+            animation: glitch 1s linear infinite;
+        }
+
+        @keyframes glitch {
+            2%, 64% {
+                transform: translate(2px, 0) skew(0deg);
+            }
+            4%, 60% {
+                transform: translate(-2px, 0) skew(0deg);
+            }
+            62% {
+                transform: translate(0, 0) skew(5deg);
+            }
+        }
+
+        .glitch:before,
+        .glitch:after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch:before {
+            animation: glitchTop 1s linear infinite;
+            clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+            text-shadow: 2px 0 #0ff;
+        }
+
+        @keyframes glitchTop {
+            2%, 64% {
+                transform: translate(2px, -2px);
+            }
+            4%, 60% {
+                transform: translate(-2px, 2px);
+            }
+            62% {
+                transform: translate(13px, -1px) skew(-13deg);
+            }
+        }
+
+        .glitch:after {
+            animation: glitchBottom 1.5s linear infinite;
+            clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+            -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+            text-shadow: -2px 0 #f0f;
+        }
+
+        @keyframes glitchBottom {
+            2%, 64% {
+                transform: translate(-2px, 0);
+            }
+            4%, 60% {
+                transform: translate(-2px, 0);
+            }
+            62% {
+                transform: translate(-22px, 5px) skew(21deg);
+            }
+        }
+
+        h1 {
+            font-size: 64px;
+            margin-bottom: 16px;
+        }
+
+        p {
+            margin: 0 0 24px 0;
+            font-size: 32px;
+        }
+        .buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .button {
+            color: white;
+            text-decoration: none;
+            border: 1px solid white;
+            padding: 16px 32px;
+            border-radius: 4px;
+            font-size: 28px;
+        }
+        .section {
+            padding: 48px 24px;
+            min-height: 40vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .box {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            padding: 24px;
+            margin: 24px 0;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: left;
+            background: #141414;
+        }
+        h2, h3 {
+            font-size: 48px;
+            margin-bottom: 24px;
+            text-align: center;
+            letter-spacing: -0.5px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+                         0 0 20px rgba(255, 255, 255, 0.3),
+                         0 0 30px rgba(255, 255, 255, 0.2);
+        }
+        h3 {
+            font-size: 32px;
+        }
+        .token-box h4 {
+            font-size: 24px;
+            margin: 0 0 16px 0;
+            letter-spacing: -0.5px;
+            width: 100%;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+                         0 0 20px rgba(255, 255, 255, 0.3),
+                         0 0 30px rgba(255, 255, 255, 0.2);
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            font-size: 28px;
+        }
+        li {
+            margin-bottom: 16px;
+            padding-left: 32px;
+            position: relative;
+            line-height: 1.4;
+        }
+        li:last-child {
+            margin-bottom: 0;
+        }
+        li::before {
+            position: absolute;
+            left: 0;
+        }
+        .how-it-works li::before {
+            content: '>';
+        }
+        .benefits li::before {
+            content: '[+]';
+        }
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            width: 100%;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+        .token-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 24px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 24px auto;
+        }
+        .token-box {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            padding: 24px;
+            background: #141414;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 0;
+        }
+        .token-box .big-text {
+            font-size: 36px;
+            margin: 8px 0;
+            font-weight: bold;
+            width: 100%;
+            text-align: center;
+            word-break: break-word;
+        }
+        .token-box .small-text {
+            font-size: 20px;
+            margin: 8px 0;
+            opacity: 0.8;
+            width: 100%;
+            text-align: center;
+        }
+        .tokenomics-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .tokenomics-section .box {
+            max-width: 800px;
+            width: 100%;
+            margin: 24px auto;
+        }
+        .logo-container {
+            margin: 48px auto 24px;
+            position: relative;
+            width: 200px;
+            height: 80px;
+        }
+        .logo-text {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            z-index: 1;
+        }
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+        .logo-path {
+            filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.3));
+        }
+        @media (min-width: 768px) {
+            .two-columns {
+                grid-template-columns: 1fr 1fr;
+            }
+            .token-box {
+                padding: 32px;
+            }
+            .box {
+                padding: 32px;
+            }
+            .quote {
+                padding: 32px;
+            }
+            .quote::after {
+                right: 32px;
+                bottom: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <div class="logo-container">
+            <div class="logo-text">IBI</div>
+            <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 40L40 20H160L180 40L160 60H40L20 40Z" fill="rgba(0, 255, 0, 0.1)" stroke="currentColor" stroke-width="2" class="logo-path"></path>
+            </svg>
+        </div>
+        <h1 class="glitch" data-text="Infinite Butthole Itch">Infinite Butthole Itch</h1>
+        <p>Scratch 2 Earn $IBI tokens every 5 minutes just by itching your butthole.</p>
+        
+        <div class="buttons">
+            <a href="#" class="button">Buy Now</a>
+            <a href="#" class="button">📊Chart</a>
+            <a href="#" class="button">𝕏</a>
+            <a href="#" class="button">📱</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="glitch" data-text="The First Scratch & Sniff Memecoin">The First Scratch & Sniff Memecoin</h2>
+        <p class="quote">Every 5 minutes, holders receive an itchy sensation in their anus.</p>
+    </div>
+
+    <div class="section">
+        <div class="two-columns">
+            <div>
+                <h2 class="glitch" data-text="How It Works">How It Works</h2>
+                <div class="box">
+                    <ul class="how-it-works">
+                        <li>✓ Itchy ass</li>
+                        <li>✓ Scratch every 5 minutes</li>
+                        <li>✓ Smart contract distributes $IBI to all holders every 5 minutes</li>
+                        <li>✓ Rewards are proportional to your butthole's itchiness</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <h2 class="glitch" data-text="Benefits">Benefits</h2>
+                <div class="box">
+                    <ul class="benefits">
+                        <li> Earn passive income in $IBI just by scratching</li>
+                        <li> No need to wipe - itches are automatic</li>
+                        <li> Frequent 5-minute distribution cycles</li>
+                        <li> Deeper scratch activity means more rewards</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="glitch" data-text="Why Choose $IBI?">Why Choose $IBI?</h2>
+        <div class="token-grid">
+            <div class="token-box">
+                <h4>>_</h4>
+                <div class="big-text">5% Tax Distribution</div>
+                <div class="small-text">Every scratch and sniff transaction contributes to the reward pool</div>
+            </div>
+            <div class="token-box">
+                <h4>[]</h4>
+                <div class="big-text">Auto-Scratch System</div>
+                <div class="small-text">Itches are automatically distributed every 5 minutes</div>
+            </div>
+            <div class="token-box">
+                <h4>$_</h4>
+                <div class="big-text">$IBI Rewards</div>
+                <div class="small-text">Earn $IBI just by holding tokens in your wallet</div>
+            </div>
+            <div class="token-box">
+                <h4>//</h4>
+                <div class="big-text">Fair Launch</div>
+                <div class="small-text">No pre-sale, no team tokens, 100% fair distribution</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="glitch" data-text="Tokenomics">Tokenomics</h2>
+        <div class="tokenomics-section">
+            <div class="token-grid">
+                <div class="token-box">
+                    <h4>1B</h4>
+                    <div class="big-text">1,000,000,000</div>
+                    <div class="small-text">Total Supply</div>
+                </div>
+                <div class="token-box">
+                    <h4>=====</h4>
+                    <div class="big-text">100%</div>
+                    <div class="small-text">Initial Liquidity</div>
+                </div>
+                <div class="token-box">
+                    <h4>< 5% ></h4>
+                    <div class="big-text">5%</div>
+                    <div class="small-text">Tax</div>
+                </div>
+                <div class="token-box">
+                    <h4>>>100<<</h4>
+                    <div class="big-text">100%</div>
+                    <div class="small-text">Fair Launch</div>
+                </div>
+            </div>
+            <div class="box">
+                <h3 class="glitch" data-text="True Fair Launch">True Fair Launch</h3>
+                <p>100% of the total supply is added to liquidity at launch, with no team tokens, no presale, and no max wallet limits.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
